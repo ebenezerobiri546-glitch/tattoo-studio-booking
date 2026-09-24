@@ -1,1 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OBSIDIAN & INK — Bespoke Tattoo Studio & Private Intake</title>
 
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts: Cinzel & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            amber: {
+              350: '#fbbf24',
+              450: '#f59e0b',
+              550: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #09090b;
+      color: #e4e4e7;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fef08a 0%, #f59e0b 50%, #b45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border-glow {
+      box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.35);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #18181b;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #3f3f46;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border-b border-zinc-800/80 px-4 py-2 text-xs flex flex-wrap items-center justify-between text-zinc-400 gap-2">
+    <div class="flex items-center gap-2 mx-auto sm:mx-0">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span class="font-medium text-zinc-300">Fall / Winter Session Books Open</span>
+      <span class="hidden md:inline text-zinc-600">•</span>
+      <span class="hidden md:inline text-zinc-400">Strictly 1-on-1 Sterile Private Studio & VIP Call-Outs</span>
+    </div>
+    <div class="mx-auto sm:mx-0 flex items-center gap-4 text-[11px] text-zinc-500">
+      <span>Demo Studio: Chicago, IL</span>
+      <span class="text-zinc-700">|</span>
+      <span class="text-amber-400/90 font-medium">Deposit Deducted From Final Bill</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-700 flex items-center justify-center text-black font-cinzel font-black text-xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+          Ω
+        </div>
+        <div>
+          <span class="font-cinzel tracking-[0.2em] font-bold text-lg text-white block group-hover:text-amber-400 transition-colors">OBSIDIAN & INK</span>
+          <span class="text-[10px] tracking-widest text-zinc-400 uppercase font-semibold">Custom Atelier & Realism</span>
+        </div>
+      </a>
+
+      <!-- Center Links (Desktop) -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
+        <a href="#gallery" class="hover:text-amber-400 transition-colors">Portfolio Gallery</a>
+        <a href="#intake" class="hover:text-amber-400 transition-colors">Book Consultation</a>
+        <a href="#reviews" class="hover:text-amber-400 transition-colors">Client Reviews</a>
+        <a href="#faq" class="hover:text-amber-400 transition-colors">Preparation</a>
+      </nav>
+
+      <!-- High-Visibility Artist Portal CTA (With Visible Demo PIN Hint) -->
+      <div class="flex items-center gap-3">
+        <button onclick="openPortalModal()" class="relative group flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500/15 via-amber-500/25 to-amber-500/15 border-2 border-amber-400/60 hover:border-amber-400 text-amber-300 hover:text-amber-200 transition-all gold-border-glow">
+          <i data-lucide="shield-check" class="w-4 h-4 text-amber-400 animate-pulse"></i>
+          <span class="font-bold text-xs uppercase tracking-wider">Artist Portal</span>
+          <span class="bg-amber-400 text-zinc-950 font-black text-[10px] px-2 py-0.5 rounded-full shadow-sm">
+            DEMO PIN: 1234
+          </span>
+        </button>
+
+        <a href="#intake" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-lg shadow-amber-500/10">
+          Lock Date
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-12 pb-20 md:py-28 overflow-hidden">
+    <!-- Atmospheric Background Glow -->
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-amber-500/10 rounded-full blur-[130px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-xs text-zinc-300">
+            <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>Award-Winning Private Needlework • Single-Needle & Realism</span>
+          </div>
+
+          <h1 class="font-cinzel text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] tracking-tight">
+            PERMANENT ART <br/>
+            <span class="gold-gradient-text">ENGINEERED TO ENDURE.</span>
+          </h1>
+
+          <p class="text-zinc-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+            Eliminate endless DM back-and-forth. Select your placement, calculate sizing deposits, and reserve an in-studio session or private VIP call-out in under two minutes.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#intake" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-zinc-950 font-bold text-sm uppercase tracking-wider transition-all shadow-xl shadow-amber-500/20 flex items-center justify-center gap-2">
+              <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+              Start Intake & Pricing
+            </a>
+            <a href="#gallery" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700/80 font-semibold text-sm transition-all flex items-center justify-center gap-2">
+              <i data-lucide="image" class="w-4 h-4 text-amber-400"></i>
+              Explore Flash & Works
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-zinc-800/80 max-w-lg mx-auto lg:mx-0 text-left">
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-white font-cinzel">5.0 ★</div>
+              <div class="text-xs text-zinc-400">140+ Client Reviews</div>
+            </div>
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-white font-cinzel">100%</div>
+              <div class="text-xs text-zinc-400">Hospital-Grade Sterile</div>
+            </div>
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-white font-cinzel">VIP Call</div>
+              <div class="text-xs text-zinc-400">Private Suite Travel</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual Showcase / Photo Collage -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <!-- Glow underlay -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-amber-600/20 to-zinc-800/30 rounded-3xl blur-2xl"></div>
+
+            <div class="relative grid grid-cols-2 gap-3.5 p-3 bg-zinc-900/60 rounded-3xl border border-zinc-800/80 backdrop-blur-sm">
+              <div class="space-y-3.5">
+                <div class="group relative rounded-2xl overflow-hidden border border-zinc-800">
+                  <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=700&q=80" alt="Black and grey realism tattoo on forearm" class="w-full h-52 object-cover object-center group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x800/18181b/e4e4e7?text=Realism+Work'" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                    <span class="text-xs font-semibold text-amber-300">Black & Grey Realism</span>
+                  </div>
+                </div>
+                <div class="group relative rounded-2xl overflow-hidden border border-zinc-800">
+                  <img src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&w=700&q=80" alt="Fine line tattoo work" class="w-full h-36 object-cover object-center group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x500/18181b/e4e4e7?text=Fine+Line'" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                    <span class="text-xs font-semibold text-zinc-300">Single Needle Micro</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-3.5 pt-6">
+                <div class="group relative rounded-2xl overflow-hidden border border-zinc-800">
+                  <img src="https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=700&q=80" alt="Detailed back tattoo piece" class="w-full h-36 object-cover object-center group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x500/18181b/e4e4e7?text=Back+Piece'" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                    <span class="text-xs font-semibold text-zinc-300">Full Torso & Back</span>
+                  </div>
+                </div>
+                <div class="group relative rounded-2xl overflow-hidden border border-zinc-800">
+                  <img src="https://images.unsplash.com/photo-1590246814883-578336ffbb3d?auto=format&fit=crop&w=700&q=80" alt="Neo traditional and sleeve work" class="w-full h-52 object-cover object-center group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x800/18181b/e4e4e7?text=Sleeve+Work'" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                    <span class="text-xs font-semibold text-amber-300">Neo-Traditional Sleeve</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Studio Guarantee Sticker -->
+            <div class="absolute -bottom-5 -left-4 sm:-left-6 bg-zinc-950 border border-amber-500/40 rounded-2xl p-3.5 shadow-2xl flex items-center gap-3 backdrop-blur-md">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-white uppercase tracking-wider">Custom Stencils Only</p>
+                <p class="text-[11px] text-zinc-400">Zero copied Pinterest flash</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VISUAL PORTFOLIO & FLASH GALLERY -->
+  <section id="gallery" class="py-20 bg-zinc-950 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-amber-400 font-semibold text-xs uppercase tracking-widest block mb-2">Curated Needlework</span>
+        <h2 class="font-cinzel text-3xl sm:text-4xl font-black text-white">SELECTED FLASH & PORTFOLIO</h2>
+        <p class="text-zinc-400 text-sm mt-3">Explore recent healed pieces and open flash concepts ready for reservation.</p>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Piece 1 -->
+        <div class="group bg-zinc-900/70 rounded-2xl overflow-hidden border border-zinc-800 hover:border-amber-500/50 transition-all flex flex-col">
+          <div class="relative h-72 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=800&q=80" alt="Onyx Realism Forearm Tattoo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/18181b/e4e4e7?text=Realism+Sculpture'" />
+            <span class="absolute top-3 right-3 bg-zinc-950/80 backdrop-blur-md text-amber-300 text-[11px] font-bold px-2.5 py-1 rounded-md border border-amber-500/30">
+              Healed 8 Mos
+            </span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <h3 class="font-cinzel font-bold text-white text-lg">Hyper-Realism Classical Bust</h3>
+                <span class="text-xs font-mono text-zinc-400">6.5 hrs</span>
+              </div>
+              <p class="text-xs text-zinc-400 leading-relaxed">Multi-tonal grey wash shading using 3RL needles. Crafted for inner forearm placement.</p>
+            </div>
+            <button onclick="prefillStyle('Realism', 'Forearm')" class="mt-4 w-full py-2.5 rounded-lg bg-zinc-800 hover:bg-amber-500 hover:text-zinc-950 text-zinc-200 text-xs font-bold tracking-wider uppercase transition-colors flex items-center justify-center gap-1.5">
+              <span>Book Similar Style</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Piece 2 -->
+        <div class="group bg-zinc-900/70 rounded-2xl overflow-hidden border border-zinc-800 hover:border-amber-500/50 transition-all flex flex-col">
+          <div class="relative h-72 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?auto=format&fit=crop&w=800&q=80" alt="Dark Floral and Snake Tattoo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/18181b/e4e4e7?text=Dark+Floral'" />
+            <span class="absolute top-3 right-3 bg-zinc-950/80 backdrop-blur-md text-emerald-400 text-[11px] font-bold px-2.5 py-1 rounded-md border border-emerald-500/30">
+              Available Flash
+            </span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <h3 class="font-cinzel font-bold text-white text-lg">Viper & Black Peonies</h3>
+                <span class="text-xs font-mono text-zinc-400">4.5 hrs</span>
+              </div>
+              <p class="text-xs text-zinc-400 leading-relaxed">High-contrast solid blacks with delicate stippling gradients. Ideal for calf or forearm.</p>
+            </div>
+            <button onclick="prefillStyle('Dark Floral', 'Calf/Leg')" class="mt-4 w-full py-2.5 rounded-lg bg-zinc-800 hover:bg-amber-500 hover:text-zinc-950 text-zinc-200 text-xs font-bold tracking-wider uppercase transition-colors flex items-center justify-center gap-1.5">
+              <span>Book Similar Style</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Piece 3 -->
+        <div class="group bg-zinc-900/70 rounded-2xl overflow-hidden border border-zinc-800 hover:border-amber-500/50 transition-all flex flex-col">
+          <div class="relative h-72 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1590246814883-578336ffbb3d?auto=format&fit=crop&w=800&q=80" alt="Japanese Dragon Neo Traditional" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/18181b/e4e4e7?text=Neo+Japanese'" />
+            <span class="absolute top-3 right-3 bg-zinc-950/80 backdrop-blur-md text-amber-300 text-[11px] font-bold px-2.5 py-1 rounded-md border border-amber-500/30">
+              Multi-Session
+            </span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <h3 class="font-cinzel font-bold text-white text-lg">Ryu & Chrysanthemum Sleeve</h3>
+                <span class="text-xs font-mono text-zinc-400">18 hrs (3 Day)</span>
+              </div>
+              <p class="text-xs text-zinc-400 leading-relaxed">Full coverage anatomical flow tailored specifically to muscle contours and arm movement.</p>
+            </div>
+            <button onclick="prefillStyle('Neo-Traditional', 'Full Sleeve')" class="mt-4 w-full py-2.5 rounded-lg bg-zinc-800 hover:bg-amber-500 hover:text-zinc-950 text-zinc-200 text-xs font-bold tracking-wider uppercase transition-colors flex items-center justify-center gap-1.5">
+              <span>Book Similar Style</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTAKE & CONSULTATION CALCULATOR -->
+  <section id="intake" class="py-20 relative bg-zinc-900/40">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-amber-400 font-semibold text-xs uppercase tracking-widest block mb-2">Automated Studio Intake</span>
+        <h2 class="font-cinzel text-3xl sm:text-4xl font-black text-white">BOOK CONSULTATION & ESTIMATE</h2>
+        <p class="text-zinc-400 text-sm mt-3">Select your placement, specify your design vision, and send your request straight to the artist without cluttering direct messages.</p>
+      </div>
+
+      <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- Form Inputs (Left) -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Step 1: Style Selection -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2.5">
+                1. Select Desired Style
+              </label>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5" id="style-selector">
+                <button type="button" onclick="selectStyle('Realism', 180)" class="style-btn active px-3 py-2.5 rounded-xl border border-amber-500 bg-amber-500/10 text-amber-300 text-xs font-medium text-left transition-all">
+                  Black & Grey Realism
+                </button>
+                <button type="button" onclick="selectStyle('Fine Line', 160)" class="style-btn px-3 py-2.5 rounded-xl border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-white text-xs font-medium text-left transition-all">
+                  Fine Line Micro
+                </button>
+                <button type="button" onclick="selectStyle('Neo-Traditional', 170)" class="style-btn px-3 py-2.5 rounded-xl border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-white text-xs font-medium text-left transition-all">
+                  Neo-Traditional
+                </button>
+                <button type="button" onclick="selectStyle('Dark Floral', 165)" class="style-btn px-3 py-2.5 rounded-xl border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-white text-xs font-medium text-left transition-all">
+                  Dark Floral / Gothic
+                </button>
+                <button type="button" onclick="selectStyle('Japanese / Ryu', 190)" class="style-btn px-3 py-2.5 rounded-xl border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-white text-xs font-medium text-left transition-all">
+                  Japanese Irezumi
+                </button>
+                <button type="button" onclick="selectStyle('Custom Concept', 175)" class="style-btn px-3 py-2.5 rounded-xl border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-white text-xs font-medium text-left transition-all">
+                  Custom Concept
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Placement & Sizing -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="placement" class="block text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2">
+                  2. Body Placement
+                </label>
+                <select id="placement" onchange="calculateDeposit()" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-3 text-sm text-zinc-200 focus:outline-none focus:border-amber-400">
+                  <option value="Forearm / Bicep">Forearm / Bicep (Standard)</option>
+                  <option value="Full Sleeve">Full Sleeve (Multi-Session)</option>
+                  <option value="Back / Chest">Back or Chest Piece</option>
+                  <option value="Thigh / Leg">Thigh or Calf</option>
+                  <option value="Ribs / Torso">Ribs / Torso (High Sensitivity)</option>
+                  <option value="Hand / Neck">Hand / Neck / Throat</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="size" class="block text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2">
+                  Estimated Sizing
+                </label>
+                <select id="size" onchange="calculateDeposit()" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-3 text-sm text-zinc-200 focus:outline-none focus:border-amber-400">
+                  <option value="Medium (4-6 inches)">Medium (4 - 6 inches)</option>
+                  <option value="Small (2-4 inches)">Small Flash (2 - 4 inches)</option>
+                  <option value="Large (7-10 inches)">Large (7 - 10 inches)</option>
+                  <option value="Full Coverage Multi-Day">Full Coverage / Multi-Day</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- VIP Call-out Toggle -->
+            <div class="p-4 rounded-2xl bg-zinc-900/80 border border-zinc-800">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                    <i data-lucide="home" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-white">VIP Private Call-Out / House Call</h4>
+                    <p class="text-xs text-zinc-400">Artist brings full sterile portable studio directly to your residence</p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="vip-toggle" onchange="toggleVipMode()" class="sr-only peer">
+                  <div class="w-11 h-6 bg-zinc-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-zinc-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
+                </label>
+              </div>
+
+              <!-- Hidden dynamic address input -->
+              <div id="vip-address-container" class="mt-3.5 hidden pt-3 border-t border-zinc-800">
+                <label for="vip-address" class="block text-xs font-semibold text-amber-400 mb-1">
+                  Private Location / Hotel / Residence Address:
+                </label>
+                <input type="text" id="vip-address" placeholder="e.g., 840 N Michigan Ave, Suite #1204, Chicago" class="w-full bg-zinc-950 border border-amber-500/40 rounded-xl px-3.5 py-2.5 text-xs text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-amber-400" />
+                <span class="text-[10px] text-zinc-500 mt-1 block">+$150 mobile equipment sanitation & travel fee applied</span>
+              </div>
+            </div>
+
+            <!-- Client Info Fields -->
+            <div class="space-y-3.5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <label for="client-name" class="block text-xs font-semibold text-zinc-400 mb-1">Full Name</label>
+                  <input type="text" id="client-name" placeholder="Alex Thorne" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-sm text-zinc-200 focus:outline-none focus:border-amber-400" />
+                </div>
+                <div>
+                  <label for="client-phone" class="block text-xs font-semibold text-zinc-400 mb-1">Phone Number</label>
+                  <input type="tel" id="client-phone" placeholder="+1 (555) 019-2834" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-sm text-zinc-200 focus:outline-none focus:border-amber-400" />
+                </div>
+              </div>
+
+              <div>
+                <label for="design-notes" class="block text-xs font-semibold text-zinc-400 mb-1">Design Vision & Reference Links</label>
+                <textarea id="design-notes" rows="3" placeholder="Briefly describe your subject, theme, or paste links to reference images..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl p-3 text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-amber-400"></textarea>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Summary & Dispatch Actions (Right) -->
+          <div class="lg:col-span-5 flex flex-col justify-between bg-zinc-900/60 rounded-2xl border border-zinc-800/80 p-6">
+            <div>
+              <div class="flex items-center justify-between pb-4 border-b border-zinc-800">
+                <span class="font-cinzel font-bold text-white uppercase text-sm">Consultation Breakdown</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono">Real-Time Est.</span>
+              </div>
+
+              <!-- Price breakdown rows -->
+              <div class="space-y-3 py-4 text-xs">
+                <div class="flex justify-between text-zinc-400">
+                  <span>Selected Style:</span>
+                  <strong id="summary-style" class="text-white font-medium">Black & Grey Realism</strong>
+                </div>
+                <div class="flex justify-between text-zinc-400">
+                  <span>Target Placement:</span>
+                  <strong id="summary-placement" class="text-white font-medium">Forearm / Bicep</strong>
+                </div>
+                <div class="flex justify-between text-zinc-400">
+                  <span>Estimated Session:</span>
+                  <strong id="summary-hours" class="text-white font-mono">~3.5 - 4.5 Hours</strong>
+                </div>
+                <div class="flex justify-between text-zinc-400">
+                  <span>VIP Travel Surcharge:</span>
+                  <strong id="summary-vip" class="text-zinc-500 font-mono">$0.00</strong>
+                </div>
+                
+                <div class="pt-3 border-t border-zinc-800 flex justify-between items-baseline">
+                  <div>
+                    <span class="text-xs text-zinc-300 uppercase tracking-wider block font-semibold">Required Booking Deposit</span>
+                    <span class="text-[10px] text-zinc-500">Locks your appointment; deducted from final session</span>
+                  </div>
+                  <div class="text-right">
+                    <span id="deposit-amount" class="text-2xl font-black text-amber-400 font-cinzel">$100</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Demo Notice Box -->
+              <div class="mt-2 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-300/90 leading-tight">
+                <i data-lucide="info" class="w-3.5 h-3.5 inline mr-1 text-amber-400"></i>
+                <strong>Demo Mode Active:</strong> Clicking dispatch formats your intake details and routes to demo channels without real charges.
+              </div>
+            </div>
+
+            <!-- Dual-Channel Dispatch Buttons -->
+            <div class="space-y-3 pt-6">
+              <button onclick="dispatchToWhatsApp()" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/40 transition-colors">
+                <i data-lucide="message-square" class="w-4 h-4"></i>
+                <span>Dispatch via WhatsApp</span>
+              </button>
+
+              <button onclick="openInstagramBridge()" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-600 hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-opacity">
+                <i data-lucide="instagram" class="w-4 h-4"></i>
+                <span>Direct Instagram DM Bridge</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT REVIEWS & SOCIAL PROOF -->
+  <section id="reviews" class="py-20 bg-zinc-950 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="text-amber-400 font-semibold text-xs uppercase tracking-widest block mb-2">Verified Experience</span>
+          <h2 class="font-cinzel text-3xl sm:text-4xl font-black text-white">COLLECTOR REVIEWS</h2>
+        </div>
+        <button onclick="openReviewModal()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-xs font-semibold text-zinc-200 transition-colors">
+          <i data-lucide="edit-3" class="w-4 h-4 text-amber-400"></i>
+          <span>Write a Studio Review</span>
+        </button>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="reviews-container">
+        
+        <!-- Review 1 -->
+        <div class="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center text-amber-400 gap-1 mb-3">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs text-zinc-400 ml-2 font-mono">5.0</span>
+            </div>
+            <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+              "Did a full 7-hour realism portrait session. The intake process made everything completely seamless—we already had the stencil scaled and ready when I walked in. Healed perfectly."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-zinc-800/80">
+            <div class="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-amber-400 text-xs">
+              MR
+            </div>
+            <div>
+              <h5 class="text-xs font-bold text-white">Marcus Vance</h5>
+              <span class="text-[11px] text-zinc-500">Forearm Realism Sleeve • Healed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center text-amber-400 gap-1 mb-3">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs text-zinc-400 ml-2 font-mono">5.0</span>
+            </div>
+            <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+              "Used the VIP house call option for our wedding anniversary pieces. He brought medical-grade wraps, sterile equipment, and great energy. Totally worth the surcharge."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-zinc-800/80">
+            <div class="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-amber-400 text-xs">
+              EL
+            </div>
+            <div>
+              <h5 class="text-xs font-bold text-white">Elena & David Rostova</h5>
+              <span class="text-[11px] text-zinc-500">VIP Private Call-out • Custom Script</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center text-amber-400 gap-1 mb-3">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs text-zinc-400 ml-2 font-mono">5.0</span>
+            </div>
+            <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+              "The single-needle linework on my rib cage is insane. Crisp lines, no blowouts. The direct consultation booking saved weeks of DM tag."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-zinc-800/80">
+            <div class="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-amber-400 text-xs">
+              KT
+            </div>
+            <div>
+              <h5 class="text-xs font-bold text-white">Kai Takahashi</h5>
+              <span class="text-[11px] text-zinc-500">Micro Fine Line • Rib Placement</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PREPARATION & FAQ SECTION -->
+  <section id="faq" class="py-16 bg-zinc-900/30 border-t border-zinc-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h3 class="font-cinzel text-2xl font-bold text-white">SESSION PREPARATION & POLICIES</h3>
+        <p class="text-xs text-zinc-400 mt-2">Essential guidelines before your scheduled needle session</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800/80 space-y-1.5">
+          <h4 class="font-bold text-white flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+            Hydration & Meals
+          </h4>
+          <p class="text-zinc-400 leading-relaxed">Eat a substantial carb-rich meal 1–2 hours prior to arrival and drink plenty of water to maintain blood sugar.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800/80 space-y-1.5">
+          <h4 class="font-bold text-white flex items-center gap-2">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400"></i>
+            No Alcohol or Blood Thinners
+          </h4>
+          <p class="text-zinc-400 leading-relaxed">Avoid alcohol, aspirin, and heavy caffeine 24 hours prior to your session to prevent excessive bleeding.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800/80 space-y-1.5">
+          <h4 class="font-bold text-white flex items-center gap-2">
+            <i data-lucide="shield" class="w-4 h-4 text-amber-400"></i>
+            Non-Refundable Deposits
+          </h4>
+          <p class="text-zinc-400 leading-relaxed">Deposits lock your calendar date and stencil preparation time. Deducted in full from the final tattoo total.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800/80 space-y-1.5">
+          <h4 class="font-bold text-white flex items-center gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 text-purple-400"></i>
+            Private Studio Address
+          </h4>
+          <p class="text-zinc-400 leading-relaxed">Studio location details and suite access codes are dispatched 48 hours prior to your consultation date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-zinc-950 border-t border-zinc-850 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-cinzel font-bold text-sm">
+          Ω
+        </div>
+        <div>
+          <span class="font-cinzel text-white text-sm font-bold tracking-widest">OBSIDIAN & INK</span>
+          <p class="text-[11px] text-zinc-500">© 2026 Obsidian & Ink Atelier. Demonstration System.</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4 text-xs text-zinc-400">
+        <button onclick="openPortalModal()" class="text-amber-400 hover:underline flex items-center gap-1">
+          <i data-lucide="key" class="w-3.5 h-3.5"></i>
+          <span>Artist Administration (PIN: 1234)</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ARTIST PORTAL MODAL (PIN-PROTECTED WITH BUILT-IN DEMO HINT) -->
+  <div id="portal-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-zinc-950 border border-amber-500/40 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative custom-scrollbar max-h-[90vh] overflow-y-auto">
+      
+      <!-- Close Button -->
+      <button onclick="closePortalModal()" class="absolute top-5 right-5 text-zinc-400 hover:text-white p-2">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- View 1: PIN Login -->
+      <div id="portal-login-view" class="text-center py-4">
+        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mx-auto mb-4 border border-amber-500/30">
+          <i data-lucide="lock" class="w-7 h-7"></i>
+        </div>
+
+        <h3 class="font-cinzel text-2xl font-black text-white">ARTIST PRIVATE PORTAL</h3>
+        <p class="text-zinc-400 text-xs max-w-sm mx-auto mt-1 mb-6">
+          Access the client consultation intake ledger, deposits, and session dispatch history.
+        </p>
+
+        <!-- HIGH-VISIBILITY DEMO PASSWORD HINT BANNER -->
+        <div class="mb-6 p-3.5 rounded-2xl bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-amber-500/20 border border-amber-400/50 max-w-sm mx-auto text-center shadow-lg">
+          <div class="flex items-center justify-center gap-1.5 text-amber-300 font-bold text-xs uppercase tracking-wider mb-1">
+            <i data-lucide="key-round" class="w-3.5 h-3.5"></i>
+            <span>Demo Mode Access Code</span>
+          </div>
+          <p class="text-zinc-300 text-xs">
+            Enter PIN: <strong class="text-amber-400 font-mono text-base px-2 py-0.5 bg-black/50 rounded border border-amber-500/40 ml-1">1234</strong>
+          </p>
+        </div>
+
+        <!-- PIN Input Form -->
+        <div class="max-w-xs mx-auto space-y-4">
+          <input type="password" id="portal-pin" maxlength="6" placeholder="Enter PIN" class="w-full text-center tracking-[0.5em] text-2xl font-mono bg-zinc-900 border border-zinc-700 rounded-xl py-3 text-white focus:outline-none focus:border-amber-400" />
+          
+          <button onclick="verifyPortalPin()" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs uppercase tracking-wider transition-colors">
+            Unlock Artist Ledger
+          </button>
+          <p id="pin-error" class="text-xs text-rose-500 font-medium hidden">Incorrect PIN. Please use 1234 for the demo.</p>
+        </div>
+      </div>
+
+      <!-- View 2: Unlocked Ledger Dashboard -->
+      <div id="portal-dashboard-view" class="hidden">
+        <div class="flex items-center justify-between pb-4 border-b border-zinc-800">
+          <div>
+            <span class="text-[10px] text-amber-400 font-bold uppercase tracking-widest block">Logged in as Resident Artist</span>
+            <h3 class="font-cinzel text-xl font-bold text-white">CLIENT INTAKE LEDGER</h3>
+          </div>
+          <button onclick="lockPortal()" class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs text-zinc-400 hover:text-white">
+            Lock Portal
+          </button>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-3 gap-3 my-5">
+          <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-center">
+            <div class="text-[10px] text-zinc-500 uppercase">Pending Inquiries</div>
+            <div class="text-lg font-bold text-white font-mono" id="stat-pending">3</div>
+          </div>
+          <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-center">
+            <div class="text-[10px] text-zinc-500 uppercase">Confirmed Deposits</div>
+            <div class="text-lg font-bold text-emerald-400 font-mono">$400</div>
+          </div>
+          <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-center">
+            <div class="text-[10px] text-zinc-500 uppercase">VIP Call-Outs</div>
+            <div class="text-lg font-bold text-amber-400 font-mono">1</div>
+          </div>
+        </div>
+
+        <!-- Ledger Table -->
+        <div class="space-y-3" id="ledger-entries">
+          <!-- Inquiries dynamically generated here -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INSTAGRAM DIRECT DM MODAL -->
+  <div id="instagram-bridge-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-zinc-950 border border-pink-500/40 rounded-3xl max-w-md w-full p-6 sm:p-8 text-center shadow-2xl relative">
+      <button onclick="closeInstagramBridge()" class="absolute top-5 right-5 text-zinc-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 flex items-center justify-center text-white mx-auto mb-4">
+        <i data-lucide="instagram" class="w-6 h-6"></i>
+      </div>
+
+      <h3 class="font-cinzel text-xl font-bold text-white">DM INTAKE PREPARED</h3>
+      <p class="text-zinc-400 text-xs mt-1 mb-4">
+        We copied your consultation summary to your clipboard. Paste it directly into the artist's Instagram DM.
+      </p>
+
+      <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-left font-mono text-[11px] text-zinc-300 max-h-32 overflow-y-auto mb-5" id="ig-clipboard-preview">
+        <!-- Text preview -->
+      </div>
+
+      <div class="space-y-2.5">
+        <a id="ig-direct-link" href="https://ig.me/m/obsidianink_demo" target="_blank" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg">
+          <span>Open @obsidianink_demo</span>
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
+        <button onclick="closeInstagramBridge()" class="w-full py-2.5 rounded-xl bg-zinc-900 text-zinc-400 hover:text-white text-xs">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WRITE REVIEW MODAL -->
+  <div id="review-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-zinc-950 border border-zinc-800 rounded-3xl max-w-md w-full p-6 text-center shadow-2xl relative">
+      <button onclick="closeReviewModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <h3 class="font-cinzel text-xl font-bold text-white mb-1">LEAVE COLLECTOR REVIEW</h3>
+      <p class="text-xs text-zinc-400 mb-4">Share your experience with the studio needlework</p>
+
+      <div class="space-y-3 text-left">
+        <div>
+          <label class="block text-xs text-zinc-400 mb-1">Your Name</label>
+          <input type="text" id="review-name" placeholder="Jordan C." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-400" />
+        </div>
+        <div>
+          <label class="block text-xs text-zinc-400 mb-1">Piece Completed</label>
+          <input type="text" id="review-piece" placeholder="Black & Grey Wolf / Upper Arm" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-400" />
+        </div>
+        <div>
+          <label class="block text-xs text-zinc-400 mb-1">Review</label>
+          <textarea id="review-text" rows="3" placeholder="Tell us about the detail, comfort, and healing..." class="w-full bg-zinc-900 border border-zinc-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-amber-400"></textarea>
+        </div>
+        <button onclick="submitReview()" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs uppercase tracking-wider transition-colors">
+          Publish Review
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // DUMMY PLACEHOLDERS FOR DEMO SITES
+    const ARTIST_WHATSAPP_NUMBER = "10000000000";
+    const ARTIST_INSTAGRAM_HANDLE = "obsidianink_demo";
+
+    // Application State
+    let currentStyle = "Realism";
+    let baseRatePerHour = 180;
+    let selectedHours = 4;
+    let isVipCallout = false;
+
+    // Mock Intake Ledger for Artist Portal
+    let intakeLedger = [
+      {
+        id: "REQ-902",
+        name: "Devon Miller",
+        phone: "+1 (312) 555-0812",
+        style: "Black & Grey Realism",
+        placement: "Forearm",
+        vip: false,
+        deposit: "$100 (Paid)",
+        status: "Confirmed Date"
+      },
+      {
+        id: "REQ-903",
+        name: "Sophia Sterling",
+        phone: "+1 (847) 555-3921",
+        style: "Fine Line Micro",
+        placement: "Ribs / Torso",
+        vip: true,
+        deposit: "$250 (Paid)",
+        status: "VIP Home Call"
+      }
+    ];
+
+    // Style Selection Logic
+    function selectStyle(styleName, rate) {
+      currentStyle = styleName;
+      baseRatePerHour = rate;
+      
+      document.querySelectorAll('#style-selector button').forEach(btn => {
+        btn.classList.remove('active', 'border-amber-500', 'bg-amber-500/10', 'text-amber-300');
+        btn.classList.add('border-zinc-800', 'bg-zinc-900/60', 'text-zinc-400');
+      });
+
+      const clickedBtn = event.currentTarget;
+      clickedBtn.classList.add('active', 'border-amber-500', 'bg-amber-500/10', 'text-amber-300');
+      clickedBtn.classList.remove('border-zinc-800', 'bg-zinc-900/60', 'text-zinc-400');
+
+      document.getElementById('summary-style').textContent = styleName;
+      calculateDeposit();
+    }
+
+    // Prefill from Gallery
+    function prefillStyle(styleName, placementName) {
+      const intakeSection = document.getElementById('intake');
+      intakeSection.scrollIntoView({ behavior: 'smooth' });
+
+      const placementSelect = document.getElementById('placement');
+      for (let i = 0; i < placementSelect.options.length; i++) {
+        if (placementSelect.options[i].value.includes(placementName.split('/')[0])) {
+          placementSelect.selectedIndex = i;
+          break;
+        }
+      }
+      
+      selectStyle(styleName, 180);
+      calculateDeposit();
+    }
+
+    // VIP Call-Out Toggle
+    function toggleVipMode() {
+      const checkbox = document.getElementById('vip-toggle');
+      const addressBox = document.getElementById('vip-address-container');
+      const summaryVip = document.getElementById('summary-vip');
+
+      isVipCallout = checkbox.checked;
+
+      if (isVipCallout) {
+        addressBox.classList.remove('hidden');
+        summaryVip.textContent = "+$150.00 (Mobile Setup)";
+        summaryVip.classList.remove('text-zinc-500');
+        summaryVip.classList.add('text-amber-400');
+      } else {
+        addressBox.classList.add('hidden');
+        summaryVip.textContent = "$0.00";
+        summaryVip.classList.add('text-zinc-500');
+        summaryVip.classList.remove('text-amber-400');
+      }
+
+      calculateDeposit();
+    }
+
+    // Deposit Calculator
+    function calculateDeposit() {
+      const placement = document.getElementById('placement').value;
+      const size = document.getElementById('size').value;
+      
+      let baseDeposit = 100;
+      let hoursRange = "~3.5 - 4.5 Hours";
+
+      if (size.includes('Small')) {
+        baseDeposit = 80;
+        hoursRange = "~1.5 - 2.5 Hours";
+      } else if (size.includes('Large')) {
+        baseDeposit = 150;
+        hoursRange = "~6.0 - 8.0 Hours";
+      } else if (size.includes('Full Coverage')) {
+        baseDeposit = 250;
+        hoursRange = "Multi-Day (12+ Hours)";
+      }
+
+      if (placement.includes('Ribs') || placement.includes('Hand')) {
+        baseDeposit += 20;
+      }
+
+      if (isVipCallout) {
+        baseDeposit += 150;
+      }
+
+      document.getElementById('summary-placement').textContent = placement;
+      document.getElementById('summary-hours').textContent = hoursRange;
+      document.getElementById('deposit-amount').textContent = `$${baseDeposit}`;
+    }
+
+    // Format Intake Summary Message
+    function generateIntakeMessage() {
+      const name = document.getElementById('client-name').value.trim() || "Prospective Client";
+      const phone = document.getElementById('client-phone').value.trim() || "Not provided";
+      const placement = document.getElementById('placement').value;
+      const size = document.getElementById('size').value;
+      const notes = document.getElementById('design-notes').value.trim() || "None specified";
+      const deposit = document.getElementById('deposit-amount').textContent;
+      const address = isVipCallout ? document.getElementById('vip-address').value.trim() : "In-Studio";
+
+      return `🔥 OBSIDIAN & INK INTAKE REQUEST 🔥\n\n` +
+             `• Client: ${name}\n` +
+             `• Phone: ${phone}\n` +
+             `• Style: ${currentStyle}\n` +
+             `• Placement: ${placement}\n` +
+             `• Size: ${size}\n` +
+             `• Session Mode: ${isVipCallout ? 'VIP House Call' : 'Studio Session'}\n` +
+             (isVipCallout ? `• Location: ${address}\n` : '') +
+             `• Estimated Deposit: ${deposit}\n` +
+             `• Concept Notes: ${notes}\n\n` +
+             `[Submitted via Obsidian & Ink Web Portal]`;
+    }
+
+    // WhatsApp Dispatch
+    function dispatchToWhatsApp() {
+      const message = generateIntakeMessage();
+      recordInquiryInLedger();
+      const encodedMsg = encodeURIComponent(message);
+      window.open(`https://wa.me/${ARTIST_WHATSAPP_NUMBER}?text=${encodedMsg}`, '_blank');
+    }
+
+    // Instagram Bridge Modal
+    function openInstagramBridge() {
+      const message = generateIntakeMessage();
+      recordInquiryInLedger();
+
+      const previewBox = document.getElementById('ig-clipboard-preview');
+      previewBox.textContent = message;
+
+      // Safe Clipboard Copy
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = message;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      try {
+        document.execCommand('copy');
+      } catch (err) {
+        console.error('Clipboard copy error', err);
+      }
+      document.body.removeChild(tempTextArea);
+
+      document.getElementById('instagram-bridge-modal').classList.remove('hidden');
+      document.getElementById('instagram-bridge-modal').classList.add('flex');
+    }
+
+    function closeInstagramBridge() {
+      document.getElementById('instagram-bridge-modal').classList.add('hidden');
+      document.getElementById('instagram-bridge-modal').classList.remove('flex');
+    }
+
+    // Artist Portal PIN Lock System
+    function openPortalModal() {
+      document.getElementById('portal-modal').classList.remove('hidden');
+      document.getElementById('portal-modal').classList.add('flex');
+      document.getElementById('portal-pin').value = '';
+      document.getElementById('pin-error').classList.add('hidden');
+    }
+
+    function closePortalModal() {
+      document.getElementById('portal-modal').classList.add('hidden');
+      document.getElementById('portal-modal').classList.remove('flex');
+    }
+
+    function verifyPortalPin() {
+      const pin = document.getElementById('portal-pin').value.trim();
+      if (pin === "1234") {
+        document.getElementById('portal-login-view').classList.add('hidden');
+        document.getElementById('portal-dashboard-view').classList.remove('hidden');
+        renderLedger();
+      } else {
+        document.getElementById('pin-error').classList.remove('hidden');
+      }
+    }
+
+    function lockPortal() {
+      document.getElementById('portal-login-view').classList.remove('hidden');
+      document.getElementById('portal-dashboard-view').classList.add('hidden');
+      document.getElementById('portal-pin').value = '';
+    }
+
+    function recordInquiryInLedger() {
+      const name = document.getElementById('client-name').value.trim() || "New Inquiry";
+      const phone = document.getElementById('client-phone').value.trim() || "N/A";
+      const placement = document.getElementById('placement').value;
+      const deposit = document.getElementById('deposit-amount').textContent;
+
+      intakeLedger.unshift({
+        id: `REQ-${Math.floor(100 + Math.random() * 900)}`,
+        name: name,
+        phone: phone,
+        style: currentStyle,
+        placement: placement,
+        vip: isVipCallout,
+        deposit: `${deposit} (Pending)`,
+        status: "Recent Online Intake"
+      });
+
+      document.getElementById('stat-pending').textContent = intakeLedger.length;
+    }
+
+    function renderLedger() {
+      const container = document.getElementById('ledger-entries');
+      container.innerHTML = intakeLedger.map(item => `
+        <div class="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800 text-xs flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <strong class="text-white font-medium">${item.name}</strong>
+              <span class="text-[10px] text-zinc-500 font-mono">${item.id}</span>
+              ${item.vip ? '<span class="text-[9px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded font-bold uppercase">VIP Travel</span>' : ''}
+            </div>
+            <div class="text-zinc-400 text-[11px] mt-0.5">
+              ${item.style} • ${item.placement} • <span class="text-zinc-300 font-mono">${item.phone}</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="font-mono font-bold text-amber-400">${item.deposit}</span>
+            <span class="text-[10px] px-2 py-1 rounded bg-zinc-800 text-zinc-300 font-medium">${item.status}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Reviews Modal Logic
+    function openReviewModal() {
+      document.getElementById('review-modal').classList.remove('hidden');
+      document.getElementById('review-modal').classList.add('flex');
+    }
+
+    function closeReviewModal() {
+      document.getElementById('review-modal').classList.add('hidden');
+      document.getElementById('review-modal').classList.remove('flex');
+    }
+
+    function submitReview() {
+      const name = document.getElementById('review-name').value.trim();
+      const piece = document.getElementById('review-piece').value.trim();
+      const text = document.getElementById('review-text').value.trim();
+
+      if (!name || !text) {
+        alert("Please provide your name and review message.");
+        return;
+      }
+
+      const container = document.getElementById('reviews-container');
+      const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2) || "CL";
+
+      const newCard = document.createElement('div');
+      newCard.className = "p-6 rounded-2xl bg-zinc-900/60 border border-amber-500/30 flex flex-col justify-between";
+      newCard.innerHTML = `
+        <div>
+          <div class="flex items-center text-amber-400 gap-1 mb-3">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            <span class="text-xs text-zinc-400 ml-2 font-mono">5.0</span>
+          </div>
+          <p class="text-zinc-300 text-sm leading-relaxed mb-4">"${text}"</p>
+        </div>
+        <div class="flex items-center gap-3 pt-4 border-t border-zinc-800/80">
+          <div class="w-9 h-9 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs">
+            ${initials}
+          </div>
+          <div>
+            <h5 class="text-xs font-bold text-white">${name}</h5>
+            <span class="text-[11px] text-zinc-500">${piece || "Custom Piece"} • Just Added</span>
+          </div>
+        </div>
+      `;
+
+      container.prepend(newCard);
+      closeReviewModal();
+    }
+
+    // Initialize Lucide Icons on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      calculateDeposit();
+    });
+  </script>
+</body>
+</html>
